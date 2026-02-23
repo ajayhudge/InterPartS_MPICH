@@ -1,0 +1,9 @@
+lib/*
+
+# Ignore all executables in example subdirectories
+examples/fft_test_c2c/fft_test_c2c
+examples/fft_test_r2c/fft_test_r2c
+examples/halo_test/halo_test
+examples/io_test/io_test
+examples/test2d/test2d
+examples/timing/timing
