@@ -26,12 +26,22 @@ contains
     character(len=7) :: tempstr
     character(len=11) :: tempstr2
     integer :: count_mstr,count_mstr_all,count_slve_loc
-    integer(kind=8), allocatable, dimension(:) :: iseed
+!     integer(kind=4), allocatable, dimension(:) :: iseed
     !
     ! position of spheres: global initialisation by root (myid = 0)
     !
-    allocate(iseed(1))
-    iseed(1) = 16112006
+    integer :: nseed !added
+    integer, allocatable :: iseed(:)
+
+    call random_seed(size = nseed) !added
+    allocate(iseed(nseed)) !added
+
+    iseed = 16112006 + myid !added
+
+    !uncomment the next 2 lines and remove the added lines to return to original
+!     allocate(iseed(1))
+!     iseed(1) = 16112006
+
     crys=0
     if (myid .eq. 0) then
        call random_seed(put = iseed)
