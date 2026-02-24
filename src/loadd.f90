@@ -626,7 +626,7 @@ contains
        !
        ! write particle related data directly in parallel with MPI-IO
        !
-       allocate(glob(npmstr))
+       allocate(glob(max(1,npmstr))) !allocate(glob(npmstr))
        npmstr_glob(:) = 0
        npmstr_glob(myid) = npmstr
        call MPI_ALLREDUCE(npmstr_glob(0),npmstr_glob_all(0),product(dims),MPI_INTEGER,MPI_SUM,comm_cart,error)
