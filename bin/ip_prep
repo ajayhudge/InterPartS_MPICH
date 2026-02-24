@@ -1,0 +1,62 @@
+#!/bin/bash
+
+echo "usage: `basename $0`"
+echo "compiles interpart."
+echo ""
+echo ""Needs to be run from a directory containing simulation files, except for clean
+
+src=iparts
+curpath=`pwd`
+
+echo "-------------------------------------------------------------------! "
+echo "  STEP 1: MAKING $src; located at $IP_TOPDIR/src"
+echo ""
+
+## add path for InterpartS
+#export IP_TOPDIR=$HOME/InterPartS
+#export PATH=$IP_TOPDIR/bin:$PATH
+
+# check if recompile of library is neccessary
+if [[ `diff gridsize.inp $IP_TOPDIR/src/gridsize.f90` == '' ]];
+then
+  echo "gridsize in src-dir is identical, no need to compile ..."
+else
+  echo "Copying gridsize ..."
+  cp ./gridsize.inp $IP_TOPDIR/src/gridsize.f90
+  make -C $IP_TOPDIR/src/ clean 
+fi
+make -C $IP_TOPDIR/src/libs/2decomp_fft
+make -C $IP_TOPDIR/src/
+
+echo "copying $src to $curpath ..."
+cp $IP_TOPDIR/src/$src $src
+
+src=distrlfp
+
+echo "-------------------------------------------------------------------! "
+echo "  STEP 2: MAKING $src; located at $IP_TOPDIR/poslfp/"
+echo ""
+
+# check if recompile of poslfp is necessary
+echo "Checking poslfp compilation status..."
+make -C $IP_TOPDIR/src/poslfp/ 
+
+echo "copying $src to $curpath ..."
+cp $IP_TOPDIR/src/poslfp/$src $src
+
+echo "-------------------------------------------------------------------! "
+echo "  STEP 3: CREATING LAGRANGIAN FORCE POINTS (IF NEEDED)"
+echo ""
+
+# run ip_distrlfp to generate Lagrangian force points
+echo "Running ip_distrlfp to generate Lagrangian force points..."
+if [[ ! -f "lagrangianforcepoints2" ]]; then
+  echo "lagrangianforcepoints2 not found — generating with ip_distrlfp..."
+  ./distrlfp
+  echo "Lagrangian force points generation completed"
+else
+  echo "lagrangianforcepoints2 already exists; skipping generation."
+fi
+
+# create a json file for reading the parameters in python
+ip_params2json

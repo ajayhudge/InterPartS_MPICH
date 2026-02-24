@@ -1,0 +1,60 @@
+#!/bin/bash
+
+# Parse gridsize.f90
+awk '
+/::/ {
+    gsub(/!.*$/, ""); # Remove comments
+    if (match($0, /(integer|real).*::[ ]*([a-zA-Z0-9_]+)[ ]*=[ ]*(.*)$/, arr)) {
+        # add a new variable type "real" in gridsize.f90 (i.e. t_end) 
+        key=tolower(arr[2])
+        val=arr[3]
+        gsub(/[ \t,]+$/, "", val)
+        gsub(/^[ \t]+/, "", val)
+        # Convert Fortran arrays to JSON arrays
+        if (val ~ /^\(/) {
+            val = gensub(/\(([^)]*)\)/, "[\\1]", "g", val)
+            gsub(/\//, "", val)
+        }
+        # Evaluate simple expressions like 4*nlmax
+        if (val ~ /^[0-9]+\*[a-zA-Z0-9_]+$/) {
+            split(val, parts, "*")
+            if (parts[2] == "nlmax") val = 4 * 5
+        }
+        print "\"" key "\": " val ","
+    }
+}
+' gridsize.inp > gridsize.json.tmp
+
+# Parse parameters
+awk '
+/&PARAMETERS/,/\// {
+    if ($0 ~ /=/) {
+        gsub(/,/, "")
+        gsub(/^[ \t]+/, "")
+        split($0, arr, "=")
+        key=tolower(arr[1])
+        val=arr[2]
+        gsub(/^[ \t]+/, "", key)
+        gsub(/[ \t]+$/, "", key)
+        gsub(/^[ \t]+/, "", val)
+        gsub(/[ \t]+$/, "", val)
+        # Convert Fortran scientific notation to JSON (e.g., 1.7857-004 to 1.7857e-4)
+        if (val ~ /[0-9]\-[0-9]{3}/) {
+            val = gensub(/([0-9.]+)-([0-9]{3})/, "\\1e-\\2", "g", val)
+        }
+        # Handle logicals and strings
+        if (val ~ /^[FfTt]$/) val = tolower(val) == "t" ? "true" : "false"
+        else if (val ~ /^[a-zA-Z_][a-zA-Z0-9_]*$/) val = "\"" val "\""
+        print "\"" key "\": " val ","
+    }
+}
+' parameters.inp > parameters.json.tmp
+
+# Combine and clean up
+echo "{" > parameters.json
+cat gridsize.json.tmp parameters.json.tmp | sed '$ s/,$//' >> parameters.json
+echo "}" >> parameters.json
+
+rm gridsize.json.tmp parameters.json.tmp
+
+echo "Combined JSON written to parameters.json"
