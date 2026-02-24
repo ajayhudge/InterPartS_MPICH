@@ -1,0 +1,216 @@
+ STABILITY FOR SPANWISE MOMENTUM EQUATION
+ Maximum allowed delta t, i, j, k =   0.37765502929687511                1           1           1
+ %1, %2, flag =    100.00000000000000        0.0000000000000000        1.0000000000000000
+ STABILITY FOR WALL-NORMAL MOMENTUM EQUATION
+ Maximum allowed delta t, i, j, k =   0.37765502929687511                1           1           1
+ %1, %2, flag =    100.00000000000000        0.0000000000000000        1.0000000000000000
+ dtmax =   0.37765502929687511       dt =   0.23549133297236047
+ Simulation stopped: time reached   12.000000000000000
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+At line 65 of file fftw.f90
+Fortran runtime error: Recursive call to nonrecursive procedure 'clean_fft'
+
+Error termination. Backtrace:
+#0  0x717117a23e59 in ???
+#1  0x717117a24a71 in ???
+#2  0x717117a25082 in ???
+#3  0x63d05298e4b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#0  0x7f26cda23e59 in ???
+#1  0x7f26cda24a71 in ???
+#2  0x7f26cda25082 in ???
+#3  0x59ebf61534b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x63d0529ac22d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x63d0529ac320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#4  0x59ebf617122d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x59ebf6171320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x7962b4623e59 in ???
+#1  0x7962b4624a71 in ???
+#2  0x7962b4625082 in ???
+#3  0x624533ea94b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#0  0x78ba4b023e59 in ???
+#1  0x78ba4b024a71 in ???
+#2  0x78ba4b025082 in ???
+#3  0x5f5d2fc3b4b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x624533ec722d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x624533ec7320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x77b39ea23e59 in ???
+#1  0x77b39ea24a71 in ???
+#2  0x77b39ea25082 in ???
+#4  0x5f5d2fc5922d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5f5d2fc59320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#3  0x5811cdf904b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x5811cdfae22d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5811cdfae320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x74991a623e59 in ???
+#1  0x74991a624a71 in ???
+#2  0x74991a625082 in ???
+#3  0x56ba0698b4b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x56ba069a922d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x56ba069a9320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x7a2661823e59 in ???
+#1  0x7a2661824a71 in ???
+#2  0x7a2661825082 in ???
+#3  0x5b49d26b44b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#0  0x70d2da223e59 in ???
+#1  0x70d2da224a71 in ???
+#2  0x70d2da225082 in ???
+#3  0x64f910b7f4b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x5b49d26d222d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5b49d26d2320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#4  0x64f910b9d22d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x64f910b9d320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x7e9ca8823e59 in ???
+#1  0x7e9ca8824a71 in ???
+#2  0x7e9ca8825082 in ???
+#3  0x5e26426dd4b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x5e26426fb22d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5e26426fb320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x7bece7623e59 in ???
+#1  0x7bece7624a71 in ???
+#2  0x7bece7625082 in ???
+#3  0x5cc50a0844b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x5cc50a0a222d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5cc50a0a2320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x7a3ee1223e59 in ???
+#1  0x7a3ee1224a71 in ???
+#2  0x7a3ee1225082 in ???
+#3  0x5ae98e5414b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x5ae98e55f22d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5ae98e55f320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x783bee023e59 in ???
+#1  0x783bee024a71 in ???
+#2  0x783bee025082 in ???
+#3  0x5e420de034b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x5e420de2122d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5e420de21320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x7069cd023e59 in ???
+#1  0x7069cd024a71 in ???
+#2  0x7069cd025082 in ???
+#3  0x5abde210a4b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x5abde212822d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5abde2128320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x70a503423e59 in ???
+#1  0x70a503424a71 in ???
+#2  0x70a503425082 in ???
+#3  0x5e9c6e8804b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x5e9c6e89e22d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5e9c6e89e320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x739268623e59 in ???
+#1  0x739268624a71 in ???
+#2  0x739268625082 in ???
+#3  0x5e17c373e4b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x5e17c375c22d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5e17c375c320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
+#0  0x7012a6823e59 in ???
+#1  0x7012a6824a71 in ???
+#2  0x7012a6825082 in ???
+#3  0x5e87492c44b1 in __mod_fftw_MOD_clean_fft
+	at /home/ajayhudge/InterPartS_mpich/src/fftw.f90:65
+#4  0x5e87492e222d in interpt
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:532
+#5  0x5e87492e2320 in main
+	at /home/ajayhudge/InterPartS_mpich/src/main.f90:31
