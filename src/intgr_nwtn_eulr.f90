@@ -45,8 +45,11 @@ contains
     integer :: nrrequests
     !integer :: arrayrequests(1:30)
     !integer :: arraystatuses(MPI_STATUS_SIZE,1:30)
-    integer :: arrayrequests(1:2)
-    integer :: arraystatuses(MPI_STATUS_SIZE,1:2)
+!     integer :: arrayrequests(1:2)                      !original
+!     integer :: arraystatuses(MPI_STATUS_SIZE,1:2)      !original
+    integer, parameter :: MAX_REQ = 64                   !added
+    integer :: arrayrequests(1:MAX_REQ)                  !added
+    integer :: arraystatuses(MPI_STATUS_SIZE,1:MAX_REQ)  !added
     real :: ax,ay
     integer :: l
     real :: leftbound,rightbound,frontbound,backbound
